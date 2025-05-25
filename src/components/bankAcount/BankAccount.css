@@ -1,0 +1,44 @@
+ span {
+     background: linear-gradient(to right, purple, #ee0979);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .bank-account .heading {
+     display: flex;
+     justify-content: space-evenly;
+ }
+
+ .bank-account .heading div {
+     display: block;
+     margin-bottom: 4rem;
+ }
+
+ .bank-account {
+     padding: 0 2rem;
+ }
+
+ .bank-account div {
+     display: flex;
+     align-items: baseline;
+     gap: 0.77rem;
+     margin: 1rem 0;
+     flex-wrap: wrap;
+ }
+
+ @media (max-width:555px) {
+     .bank-account .heading div {
+         margin-bottom: 1rem;
+     }
+ }
+
+ @media (max-width:433px) {
+     .bank-account input {
+         margin: 0;
+     }
+
+     .bank-account div {
+         gap: 5px;
+     }
+
+ }
