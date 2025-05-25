@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { act } from 'react';
+
 
 const initialState = {
     balance: 0,
-    loan:0,
+    loan: {
+        amount: 0,
+        purpose: ''
+    },
 };
 
 const cartSlice = createSlice({
@@ -16,17 +19,20 @@ const cartSlice = createSlice({
         withdraw: (state, action) => {
             state.balance -= action.payload
         },
-        loan:(state,action)=>{
-            state.loan = action.payload
+        loan: (state, action) => {
+            state.loan = {
+                amount: action.payload.amount,
+                purpose: action.payload.purpose
+            };
             state.balance += state.loan.amount
         },
-        payLoan:(state,action)=>{
+        payLoan: (state, action) => {
             state.balance -= state.loan.amount
-            state.loan = 0
+            state.loan = { amount: 0, purpose: '' };
         }
 
     }
 });
 
 export default cartSlice.reducer;
-export const { deposit, withdraw,loan,payLoan } = cartSlice.actions;
+export const { deposit, withdraw, loan, payLoan } = cartSlice.actions;
