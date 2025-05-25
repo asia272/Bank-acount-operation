@@ -55,7 +55,7 @@ const BankAccount = ({ userInfo }) => {
         loanPurpose: '',
       }));
     } else {
-      alert('Invalid loan request or loan already taken.');
+      alert('Loan already taken.');
     }
   };
   let payLoan = () => {
