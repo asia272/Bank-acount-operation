@@ -4,22 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   deposit as depositAction,
   withdraw as withdrawAction,
-  loan as loanAction,
-  payLoan as payLoanAtion,
 } from '../../features/card/cardSlice';
+import Loan from './Loan'; // ✅ Corrected import path
 
-const BankAccount = ({ userInfo }) => {
+const BankAccount = () => {
   const balance = useSelector((state) => state.card.balance);
-  const loanTaken = useSelector((state) => state.card.loan);
+  const userInfo = useSelector((state) => state.card.userInfo);
   const dispatch = useDispatch();
 
   const [depositAmount, setDepositAmount] = useState('');
   const [withdrawAmount, setWithdrawAmount] = useState('');
-  const [loan, setLoan] = useState({
-    loanAccount: 1,
-    loanAmount: '',
-    loanPurpose: ''
-  });
 
   const add = () => {
     const amount = Number(depositAmount);
@@ -40,35 +34,6 @@ const BankAccount = ({ userInfo }) => {
       alert("Invalid rupees");
     }
   };
-
-  const reqLoan = () => {
-    const { loanAccount, loanAmount, loanPurpose } = loan;
-    const amount = Number(loanAmount);
-
-    if (amount > 0 && loanAccount === 1) {
-      dispatch(loanAction({ amount, purpose: loanPurpose }));
-
-      setLoan((prevLoan) => ({
-        ...prevLoan,
-        loanAccount: 0,
-        loanAmount: '',
-        loanPurpose: '',
-      }));
-    } else {
-      alert('Loan already taken.');
-    }
-  };
-  let payLoan = () => {
-    let { loanAccount } = loan;
-    if (loanAccount === 0) {
-      dispatch(payLoanAtion())
-      setLoan((prevLoan) => ({
-        ...prevLoan,
-        loanAccount: 1
-      }))
-    }
-
-  }
 
   return (
     <div className='bank-account'>
@@ -104,40 +69,7 @@ const BankAccount = ({ userInfo }) => {
         <button onClick={remove}>Withdraw</button>
       </div>
 
-      <div>
-        <label htmlFor="req">Request Loan:</label>
-        <input
-          type="text"
-          placeholder="loan amount"
-          id="req"
-          value={loan.loanAmount}
-          onChange={(e) =>
-            setLoan((prevLoan) => ({
-              ...prevLoan,
-              loanAmount: e.target.value,
-            }))
-          }
-        /><br />
-        <input
-          type="text"
-          placeholder="loan purpose"
-          value={loan.loanPurpose}
-          onChange={(e) =>
-            setLoan((prevLoan) => ({
-              ...prevLoan,
-              loanPurpose: e.target.value,
-            }))
-          }
-          id="req"
-        />
-        <button onClick={reqLoan}>Request Loan</button>
-        {loanTaken && loanTaken.amount > 0 && (
-          <p>💰 Taken loan of ${loanTaken.amount} for: <span>{loanTaken.purpose}</span></p>
-        )}
-      </div>
-      <div>
-        <button onClick={payLoan}>Pay Loan</button>
-      </div>
+      <Loan />
     </div>
   );
 };

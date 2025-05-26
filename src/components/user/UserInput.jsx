@@ -1,64 +1,57 @@
-import React, { useState } from 'react'
-import "./UserInput.css"
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import './UserInput.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { createUser } from '../../features/card/cardSlice';
 
-const UserInput = ({ setUserInfo }) => {
 
-  let [info, setInfo] = useState({
-    name: "",
-    IdNumber: ""
-  })
+const UserInput = () => {
 
-  let handleSubmit = (e) => {
-    e.preventDefault();
-    if (info.name.trim().length === 0) {
-      alert("Name must not be empty");
-      return;
-    } else if (info.IdNumber.trim().length === 0) {
-      alert("ID Number must not be empty");
-      return;
-    }
-    // console.log(info)
-    setInfo({
-      name: "",
-      IdNumber: ""
-    })
-    setUserInfo(info)
-  }
+  const userInfo = useSelector((state) => state.card.userInfo);
+    const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm();
 
+  const onSubmit = (data) => {
+    dispatch(createUser(data))
+    // setUserInfo(data);
+    reset()
+ 
+  };
 
   return (
     <div className='user-info'>
       <div className="heading">
         <h1>The React-Redux Bank</h1>
-        <h2>Create New customer</h2>
+        <h2>Create New Customer</h2>
       </div>
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Customer Full name</label>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="name">Customer Full Name</label>
         <input
           type="text"
-          id='name'
+          id="name"
           placeholder="Enter your name"
-          value={info.name}
-          onChange={(e) =>
-            setInfo((prev) => ({ ...prev, name: e.target.value }))
-          }
+          {...register("name", { required: "Name must not be empty" })}
         />
+        {errors.name && <p className="error">{errors.name.message}</p>}
+
         <label htmlFor="idNumber">National ID</label>
-        <input type="text"
-          id='idNumber'
-          placeholder='enter you ID'
-          value={info.IdNumber}
-          onChange={(e) =>
-            setInfo((prev) => ({ ...prev, IdNumber: e.target.value }))
-          }
-
+        <input
+          type="text"
+          id="idNumber"
+          placeholder="Enter your ID"
+          {...register("IdNumber", { required: "ID Number must not be empty" })}
         />
+        {errors.IdNumber && <p className="error">{errors.IdNumber.message}</p>}
 
-        <button>create account</button>
+        <button type="submit">Create Account</button>
       </form>
     </div>
+  );
+};
 
-  )
-}
-
-export default UserInput
+export default UserInput;
