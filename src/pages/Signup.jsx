@@ -4,6 +4,8 @@ import './Signup.css';
 import './error.css';
 import { useDispatch } from 'react-redux';
 import { submitSignup } from '../features/signup/signupSlice';
+import { motion } from 'framer-motion';
+
 
 const FormContainer = () => {
 
@@ -25,7 +27,14 @@ const FormContainer = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(formSubmit)}>
+      <motion.form onSubmit={handleSubmit(formSubmit)}
+        initial={{ opacity: 0, x: 160 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 20 }}
+        transition={{ duration: 0.3 }}
+
+
+      >
 
         <h1>Sign Up</h1>
         {/* First Name */}
@@ -77,7 +86,7 @@ const FormContainer = () => {
 
         {/* Password*/}
         <div className='pwd'>
-          <label htmlFor="pwd">PASSWORD <span>*</span></label>
+          <label htmlFor="pwd">Password <span>*</span></label>
           <input type="password"
             autoComplete="new-password"
             {...register("password", { required: "Password is required" })} id='pwd'
@@ -90,7 +99,7 @@ const FormContainer = () => {
         {/* District */}
         {/* Ehsil */}
         <button>Submit</button>
-      </form>
+      </motion.form>
     </>
 
   );

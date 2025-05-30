@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import UserInput from '../../components/user/UserInput';
 import BankAccount from '../../components/bankAcount/BankAccount';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
+
 
 
 const MainSection = () => {

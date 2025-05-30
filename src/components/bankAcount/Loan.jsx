@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loan as loanAction, payLoan as payLoanAction } from '../../features/card/cardSlice';
 import toast from 'react-hot-toast';
 import "./Loan.css"
+import { motion } from 'framer-motion';
 
 const Loan = () => {
     const dispatch = useDispatch();
@@ -37,7 +38,12 @@ const Loan = () => {
 
 
     return (
-        <div className='loan-request'>
+        <motion.div className='loan-request'
+             initial={{ opacity: 0, x: 160 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 20 }}
+        transition={{ duration: 0.3 }}
+        >
             <h2>Request for loan</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
@@ -99,7 +105,7 @@ const Loan = () => {
                     Pay Loan
                 </button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

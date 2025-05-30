@@ -6,7 +6,10 @@ import {
   deposit as depositAction,
   withdraw as withdrawAction,
 } from '../../features/card/cardSlice';
+import { motion } from 'framer-motion';
 import Loan from './Loan';
+
+
 const BankAccount = () => {
   const balance = useSelector((state) => state.card.balance);
   const userInfo = useSelector((state) => state.card.userInfo);
@@ -43,11 +46,22 @@ const BankAccount = () => {
     }
   };
   return (
-    <div className='bank-account'>
-      <h1 className='heading'>👋 Welcome <span>{userInfo.name}</span></h1>
+    <div className='bank-account' >
+      <motion.h1 className='heading'
+        initial={{ opacity: 0, y: -80 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.3 }}>
+        👋 Welcome <span>{userInfo.name}</span>
+      </motion.h1>
       <div>
-        <div>
-          <div className='operation-heading'>
+        <motion.div
+          initial={{ opacity: 0, x: -160 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.4 }}
+        >
+          <div className='operation-heading' >
             <h3>Your Account Operation</h3>
             <h1> <span>{balance}$</span></h1>
           </div>
@@ -77,8 +91,7 @@ const BankAccount = () => {
             </div>
             <button onClick={remove}>Withdraw</button>
           </div>
-        </div>
-
+        </motion.div>
 
         <Loan />
       </div>

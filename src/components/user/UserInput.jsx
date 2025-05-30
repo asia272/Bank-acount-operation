@@ -4,7 +4,7 @@ import './UserInput.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { createUser } from '../../features/card/cardSlice';
 import '../../pages/error.css';
-
+import { motion } from 'framer-motion';
 
 
 
@@ -28,7 +28,11 @@ const UserInput = () => {
   };
 
   return (
-    <div className='user-info'>
+    <motion.div className='user-info'
+       initial={{ opacity: 0, x: -160 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.3 }}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>Login</h1>
         {/* full name */}
@@ -58,7 +62,7 @@ const UserInput = () => {
 
         <button type="submit">Create Account</button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
