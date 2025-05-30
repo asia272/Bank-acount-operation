@@ -1,0 +1,21 @@
+.loan-request{
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+}
+.loan-request form{
+    margin: 1rem 0;
+}
+.pay-loan-btn{
+    margin-top: 1rem;
+}
+.disable-btn{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+i{
+    color: black;
+    font-weight: bold;
+}

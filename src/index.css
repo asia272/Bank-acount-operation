@@ -1,5 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+:root{
+ --nav-bg:hsl(159, 24%, 72%);
+ --nav-bg: #0f2332;;
+   --bg: #F5F9FC;
+  --primary: #1E3A8A;
+  --accent: #10B981;
+  --danger: #EF4444;
+  --text: #1F2937;
+  --light-text: #3c4049ef;
+  --card-bg: #FFFFFF;
+}
+body{
+  background-color: var(--bg);
+  color:var(--text);
+   font-family: 'Inter', sans-serif;
+}
+button{
+  background-color: #0f2332;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+a{
+  text-decoration: none;
+}
+span {
+  color: hsl(169, 82%, 27%);
+  margin-left: 3px;
+}
+/* Form styling */
+form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* min-width: 300px; */
+    max-width: 450px;
+    gap: 1rem;
+}
+
+input {
+    border: 1px solid hsl(186, 15%, 59%);
+    border-radius: 6px;
+    width: 100%;
+    padding: 0.33rem;
+}
+ main{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(168, 199, 250,0.4);
+ }
+ @media (max-width:450px) {
+  .form-group{
+    flex-direction: column;
+  }
+ }

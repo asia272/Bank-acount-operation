@@ -7,41 +7,19 @@
 }
 
 .heading h2 {
-    background: linear-gradient(to right, purple, #ee0979);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--light-text);
 }
 
-.user-info form {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    max-width: 400px;
-    align-items: start;
-}
-
-.user-info input {
-    width: 100%;
-}
-
-input {
-    border: 1px solid gray;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-button {
-    align-self: self-start;
-    text-transform: uppercase;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    background-color: rgb(187, 187, 187);
-    font-weight: 600;
-    background: linear-gradient(to right, rgb(240, 134, 134), rgba(128, 0, 128, 0.7), rgba(236, 9, 119, 0.7));
-}
 
 button:active {
     transform: scale(0.9);
+}
+
+input:focus {
+    border-color: hsl(169, 82%, 27%);
+    outline: none;
+}
+.form-group{
+    display: flex;
+    gap: 1rem;
 }

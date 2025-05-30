@@ -5,8 +5,7 @@ import {
   deposit as depositAction,
   withdraw as withdrawAction,
 } from '../../features/card/cardSlice';
-import Loan from './Loan'; // ✅ Corrected import path
-
+import Loan from './Loan';
 const BankAccount = () => {
   const balance = useSelector((state) => state.card.balance);
   const userInfo = useSelector((state) => state.card.userInfo);
@@ -37,39 +36,45 @@ const BankAccount = () => {
 
   return (
     <div className='bank-account'>
-      <div className='heading'>
-        <div>
-          <h1>👋 Welcome <span>{userInfo.name}</span></h1>
-          <h3>Your Account Operation</h3>
-        </div>
-        <div>
-          <h1>{balance}$</h1>
-        </div>
-      </div>
-
+      <h1 className='heading'>👋 Welcome <span>{userInfo.name}</span></h1>
       <div>
-        <label htmlFor="deposit">Deposit:</label>
-        <input
-          type="number"
-          id="deposit"
-          value={depositAmount}
-          onChange={(e) => setDepositAmount(e.target.value)}
-        />
-        <button onClick={add}>Deposit</button>
+        <div>
+          <div className='operation-heading'>
+            <h3>Your Account Operation</h3>
+            <h1> <span>{balance}$</span></h1>
+          </div>
+          <div className='deposit-amount'>
+            <div>
+              <label htmlFor="deposit">Deposit</label>
+              <input
+                type="number"
+                id="deposit"
+                value={depositAmount}
+                onChange={(e) => setDepositAmount(e.target.value)}
+              />
+            </div>
+
+            <button onClick={add}>Deposit</button>
+          </div>
+
+          <div className='withdraw'>
+            <div>
+              <label htmlFor="withdraw">Withdraw</label>
+              <input
+                type="number"
+                id="withdraw"
+                value={withdrawAmount}
+                onChange={(e) => setWithdrawAmount(e.target.value)}
+              />
+            </div>
+            <button onClick={remove}>Withdraw</button>
+          </div>
+        </div>
+
+
+        <Loan />
       </div>
 
-      <div>
-        <label htmlFor="withdraw">Withdraw:</label>
-        <input
-          type="number"
-          id="withdraw"
-          value={withdrawAmount}
-          onChange={(e) => setWithdrawAmount(e.target.value)}
-        />
-        <button onClick={remove}>Withdraw</button>
-      </div>
-
-      <Loan />
     </div>
   );
 };

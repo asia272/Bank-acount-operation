@@ -1,0 +1,14 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.home a{
+    color: #0f2332;
+    text-decoration: underline;
+}

@@ -1,0 +1,11 @@
+.input-error{
+    border-color: hsl(0, 66%, 54%);
+}
+.input-error +p{
+    color: hsl(0, 66%, 54%);
+    font-size: 13px;
+    margin-top: 5px;
+}
+.input-error > label span{
+color :hsl(0, 66%, 54%)
+}

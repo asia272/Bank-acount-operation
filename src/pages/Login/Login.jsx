@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import UserInput from '../user/UserInput';
-import BankAccount from '../bankAcount/BankAccount';
+import UserInput from '../../components/user/UserInput';
+import BankAccount from '../../components/bankAcount/BankAccount';
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -12,7 +12,7 @@ console.log(userInfo)
       {!userInfo?.name ?(
         <UserInput  />
       ) : (
-        <BankAccount userInfo={userInfo} />
+        <BankAccount />
       )}
     </div>
   );
