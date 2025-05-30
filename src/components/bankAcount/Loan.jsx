@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { loan as loanAction, payLoan as payLoanAction } from '../../features/card/cardSlice';
+import toast from 'react-hot-toast';
 import "./Loan.css"
 
 const Loan = () => {
@@ -15,21 +16,25 @@ const Loan = () => {
         reset
     } = useForm();
 
+    const handlePayLoan = () => {
+        if (loanTaken.amount > 0) {
+            dispatch(payLoanAction());
+           toast.success(`Paid ₹${loanTaken.amount} towards loan`);
+
+        }
+    };
+
     const onSubmit = (data) => {
         const amount = Number(data.loanAmount);
         if (loanTaken.amount > 0) {
-            alert('Loan already taken.');
+            toast.error('Loan already taken.');
             return;
         }
         dispatch(loanAction({ amount, purpose: data.loanPurpose }));
         reset();
+        toast.success(`Loan of ₹${amount} taken successfully`);
     };
 
-    const handlePayLoan = () => {
-        if (loanTaken.amount > 0) {
-            dispatch(payLoanAction());
-        }
-    };
 
     return (
         <div className='loan-request'>

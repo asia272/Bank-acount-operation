@@ -55,6 +55,8 @@ nav a {
         width: 100%;
         background-color: var(--nav-bg);
         padding: 2rem;
+        gap: 2.55rem;
+        align-items: center;
     }
 
     .active {

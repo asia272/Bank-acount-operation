@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./BankAccount.css";
 import { useSelector, useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 import {
   deposit as depositAction,
   withdraw as withdrawAction,
@@ -18,22 +19,29 @@ const BankAccount = () => {
     const amount = Number(depositAmount);
     if (amount > 0) {
       dispatch(depositAction(amount));
+      toast.success(`${amount} rupees deposit successful!`);
       setDepositAmount('');
     } else {
-      alert("0 rupee can't be added");
+      toast.error("0 rupee can't be deposited");
     }
   };
 
   const remove = () => {
     const amount = Number(withdrawAmount);
-    if (amount > 0 && amount <= balance) {
+
+    if (!withdrawAmount || isNaN(amount) || amount <= 0) {
+      toast.error('Please enter a valid withdrawal amount!');
+      return;
+    }
+
+    if (amount <= balance) {
       dispatch(withdrawAction(amount));
+      toast.success(`₹${amount} withdrawn successfully!`);
       setWithdrawAmount('');
     } else {
-      alert("Invalid rupees");
+      toast.error('Insufficient balance!');
     }
   };
-
   return (
     <div className='bank-account'>
       <h1 className='heading'>👋 Welcome <span>{userInfo.name}</span></h1>
