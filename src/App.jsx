@@ -1,30 +1,30 @@
-import Home from './pages/Home';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
+import LoginForm from './pages/Login/LoginForm';
+import Admin from './pages/Admin/Admin';
+import Customer from './pages/Customer/Customer';
+import Staff from './pages/Staff/Staff';
 import Signup from './pages/Signup';
-import Login from './pages/Login/Login'
-import Navbar from './components/Navbar/Navbar';
+import './pages/error.css';
+import './App.css'
 
-
-const App = () => {
-
+function App() {
 
   return (
     <>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/logout" element={<Navigate to="/login" />} />
-        </Routes>
-      </main>
-
+     <Routes>
+      <Route path="/" element={<LoginForm />} />
+        <Route path="/signup" element={<Signup />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/staff" element={<Staff />} />
+      <Route path="/customer" element={<Customer />} />
+    </Routes>
     </>
+  )
+}
 
+export default App
+  
+        
 
-  );
-};
-
-export default App;
 

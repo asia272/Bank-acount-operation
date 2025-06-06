@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import './Signup.css';
-import './error.css';
 import { useDispatch } from 'react-redux';
 import { submitSignup } from '../features/signup/signupSlice';
 import { motion } from 'framer-motion';

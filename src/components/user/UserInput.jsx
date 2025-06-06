@@ -41,7 +41,7 @@ const UserInput = () => {
           <input
             type="text"
             id="name"
-            className=''
+            className='input-error'
             placeholder="Enter your name"
             {...register("name", { required: "Name must not be empty" })}
           />
