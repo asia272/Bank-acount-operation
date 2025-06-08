@@ -18,9 +18,8 @@ const Customer = () => {
             <button>Loan Management</button>
             <button>Profile Setting</button>
           </div>
-          <div className="log-out-btn">
             <Logout/>
-          </div>
+      
         </div>
         <div className="main-content">maincontent is here</div>
       </div>

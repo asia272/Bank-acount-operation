@@ -14,6 +14,7 @@ const Logout = () => {
 
     return (
         <button
+            className="log-out-btn"
             onClick={logOut}>
             Log out
         </button>

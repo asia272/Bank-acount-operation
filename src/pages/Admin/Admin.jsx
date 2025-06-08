@@ -17,9 +17,7 @@ const Admin = () => {
           <button>Delte Branch</button>
           <button>Transactions Log</button>
         </div>
-        <div className="log-out-btn">
           <Logout />
-        </div>
       </div>
       <div className="main-content">maincontent is here</div>
     </div>

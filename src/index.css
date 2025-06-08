@@ -16,8 +16,8 @@
   --card-bg: #FFFFFF;
 }
 body{
-  background-color: var(--bg);
-  color:var(--text);
+  /* background-color: var(--bg);
+  color:var(--text); */
    font-family: 'Inter', sans-serif;
    overflow-x: hidden;
 }
@@ -30,6 +30,7 @@ button{
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
+  
 }
 a{
   text-decoration: none;
@@ -38,34 +39,18 @@ span {
   color: hsl(169, 82%, 27%);
   margin-left: 3px;
 }
-/* Form styling */
-form {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    /* min-width: 300px; */
-   width: 350px;
-    gap: 1rem;
-}
 
-input {
+input ,select{
     border: 1px solid hsl(186, 15%, 59%);
     border-radius: 6px;
     width: 100%;
     padding: 0.33rem;
 }
- main{
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(168, 199, 250,0.4);
- }
+
 /* animation */
 button:hover{
 transform: scale(1.1);
+background-color: #008b8b;
 
 }
 button:active{

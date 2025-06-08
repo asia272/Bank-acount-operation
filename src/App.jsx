@@ -6,7 +6,8 @@ import Customer from './pages/Customer/Customer';
 import Staff from './pages/Staff/Staff';
 import Signup from './pages/Signup';
 import './pages/error.css';
-import './App.css'
+import './pages/layouts.css'
+import './App.css';
 
 function App() {
 

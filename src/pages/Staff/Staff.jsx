@@ -16,9 +16,9 @@ const Staff = () => {
           <button>Staff Directory</button>
           <button>Edit Profile</button>
         </div>
-        <div className="log-out-btn">
-          <Logout />
-        </div>
+
+        <Logout />
+
       </div>
       <div className="main-content">maincontent is here</div>
     </div>
