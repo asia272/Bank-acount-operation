@@ -41,12 +41,19 @@ span {
 }
 
 input ,select{
-    border: 1px solid hsl(186, 15%, 59%);
+    border: 1px solid #0f2332;
     border-radius: 6px;
     width: 100%;
-    padding: 0.33rem;
+     padding: 0.33rem;
+  display: block;
 }
 
+label{
+  width: 30%;
+}
+label+div{
+  width: 100%;
+}
 /* animation */
 button:hover{
 transform: scale(1.1);

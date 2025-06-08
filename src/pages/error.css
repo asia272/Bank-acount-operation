@@ -1,11 +1,12 @@
-.input-error{
-    border-color: hsl(0, 66%, 54%);
+.input-error input, .input-error select{
+    border-color: hsl(0, 66%, 54%) !important;
 }
-.input-error +p{
+.input-error p{
     color: hsl(0, 66%, 54%);
     font-size: 13px;
     margin-top: 5px;
 }
-.input-error > label span{
-color :hsl(0, 66%, 54%)
+
+.input-error > label {
+  color: hsl(0, 66%, 54%);
 }

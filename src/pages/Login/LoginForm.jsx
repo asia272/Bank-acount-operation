@@ -40,58 +40,58 @@ const LoginForm = () => {
 
 
                 {/* Email Field */}
-                <div className="form-field">
-                    <label>Email Address</label><br />
-                    <input
-                        className={errors.email ? "input-error" : ""}
-                        type="email"
-                        {...register('email', {
-                            required: 'Email is required',
-                            pattern: {
-                                value: /^\S+@\S+$/i,
-                                message: 'Enter a valid email address',
-                            },
-                        })}
-                    />
-                    {errors.email && <p>{errors.email.message}</p>}
+                <div className={`form-field ${errors.email ? "input-error" : ""}`}>
+                    <label>Email Address</label>
+                    <div>
+                        <input
+
+                            type="email"
+                            {...register('email', {
+                                required: 'Email is required',
+                                pattern: {
+                                    value: /^\S+@\S+$/i,
+                                    message: 'Enter a valid email address',
+                                },
+                            })}
+                        />
+                        {errors.email && <p>{errors.email.message}</p>}
+                    </div>
+
                 </div>
 
                 {/* Password Field */}
-                <div  className="form-field">
-                    <label>Password</label><br />
-                    <input
-                        className={errors.password ? "input-error" : ""}
-                        type="password"
-                        {...register('password', {
-                            required: 'Password is required',
-                            minLength: {
-                                value: 6,
-                                message: 'Password must be at least 6 characters',
-                            },
-                        })}
-                    />
-                    {errors.password && <p>{errors.password.message}</p>}
+                <div className={`form-field ${errors.password ? "input-error" : ""}`}>
+                    <label>Password</label>
+                    <div>
+                        <input
+                            type="password"
+                            {...register("password", {
+                                required: "Password is required",
+                                minLength: {
+                                    value: 6,
+                                    message: "Password must be at least 6 characters",
+                                },
+                            })}
+                        />
+                        {errors.password && <p>{errors.password.message}</p>}
+                    </div>
                 </div>
-
-                <br />
-
                 {/* Role Field */}
-                <div className="form-field">
-                    <label>Role</label><br />
-                    <select
-                        className={errors.role ? "input-error" : ""}
-                        {...register('role', { required: 'Role is required' })}
-                    >
-                        <option value="">Select a role</option>
-                        <option value="admin">admin</option>
-                        <option value="customer">customer</option>
-                        <option value="staff">staff</option>
-                    </select>
-                    {errors.role && <p>{errors.role.message}</p>}
+                <div className={`form-field ${errors.role? "input-error" : ""}`} >
+                    <label>Role</label>
+                    <div >
+                        <select
+                            {...register('role', { required: 'Role is required' })}
+                        >
+                            <option value="">Select a role</option>
+                            <option value="admin">admin</option>
+                            <option value="customer">customer</option>
+                            <option value="staff">staff</option>
+                        </select>
+                        {errors.role && <p>{errors.role.message}</p>}
+                    </div>
+
                 </div>
-
-                <br />
-
                 <button type="submit" className="login-btn">Login</button>
             </motion.form>
 

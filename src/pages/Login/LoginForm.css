@@ -16,7 +16,7 @@
 
     /* min-width: 300px; */
     width: 500px;
-    gap: 1rem;
+    gap: 2.88rem;
 }
 
 main {
@@ -41,5 +41,15 @@ main {
 .form-field {
     display: flex;
     align-items: center;
-    /* gap: 2rem; */
+    gap: 2rem;
+    /* justify-content: space-between; */
+}
+
+.form-field input {
+    border: none !important;
+    border-radius: 0;
+    border-bottom: 2px solid gray !important;
+}
+.form-field input:focus{
+    outline: none;
 }
