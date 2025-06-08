@@ -1,5 +1,7 @@
 import React from 'react';
 import Logout from '../Logout/Logout';
+import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
   return (
@@ -8,18 +10,37 @@ const Admin = () => {
         <h1> ADMIN DASHBOARD</h1>
       </div>
       <div className="sidebar">
+
         <div className='actions-btns'>
-          <button>Create Staff</button>
-          <button>Update Staff</button>
-          <button>Delete Staff</button>
-          <button>Create Branch</button>
-          <button>Update Branch</button>
-          <button>Delte Branch</button>
-          <button>Transactions Log</button>
+          <Link to="create-staff">
+            <button>Create Staff</button>
+          </Link>
+          <Link to="create-staff">
+            <button>Update Staff</button>
+          </Link>
+          <Link to="delete-staff">
+            <button>Delete Staff</button>
+          </Link>
+          <Link to="create-branch">
+            <button>Create Branch</button>
+          </Link>
+          <Link to="create-branch">
+            <button>Update Branch</button>
+          </Link>
+          <Link to="delete-branch">
+            <button>Delete Branch</button>
+          </Link>
+          <Link to="transactions-log">
+            <button>Transactions Log</button>
+          </Link>
         </div>
-          <Logout />
+        <Logout />
       </div>
-      <div className="main-content">maincontent is here</div>
+
+      <div className="main-content">
+             <Outlet />
+
+      </div>
     </div>
 
   )

@@ -39,12 +39,18 @@
   color: black;
   height: 100%;
   overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .actions-btns {
   display: flex;
   flex-direction: column;
   gap: 0.33rem;
+}
+.actions-btns button{
+  width: 100%;
 }
 
 .sidebar {
