@@ -39,6 +39,14 @@ span {
   color: hsl(169, 82%, 27%);
   margin-left: 3px;
 }
+/* Form styling */
+form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 500px;
+
+}
 
 input ,select{
     border: 1px solid #0f2332;

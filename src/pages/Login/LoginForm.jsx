@@ -8,10 +8,12 @@ import "./LoginForm.css"
 const LoginForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const { register,
         handleSubmit,
         formState: { errors }
     } = useForm();
+
     const onSubmit = (data) => {
         console.log(data);
         let { role } = data
@@ -30,8 +32,7 @@ const LoginForm = () => {
                 initial={{ opacity: 0, x: -160 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.3 }}
-                className="login-form"
+                transition={{ duration: 0.3 }}       
             >
                 <div className="heading">
                     <h1>Fintal</h1>
@@ -92,7 +93,7 @@ const LoginForm = () => {
                     </div>
 
                 </div>
-                <button type="submit" className="login-btn">Login</button>
+                <button type="submit">Login</button>
             </motion.form>
 
         </main>

@@ -3,21 +3,9 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.44rem;
 }
 
-/* Form styling */
-.login-form {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-
-    /* min-width: 300px; */
-    width: 500px;
-    gap: 2.88rem;
-}
 
 main {
     min-height: 100vh;
@@ -32,10 +20,10 @@ main {
     color: #3882ba;
 }
 
-.login-btn {
+form button {
     border-radius: 0;
     background-color: #3882ba;
-    align-self: center;
+    float: right;
 }
 
 .form-field {
@@ -43,6 +31,7 @@ main {
     align-items: center;
     gap: 2rem;
     /* justify-content: space-between; */
+    margin-bottom: 2.55rem;
 }
 
 .form-field input {
