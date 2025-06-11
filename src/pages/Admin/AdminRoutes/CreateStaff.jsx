@@ -1,16 +1,30 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from "react-redux";
+import { addStaff } from '../../../features/admin/adminSlice';
+import { toast } from 'react-hot-toast';
 
 const CreateStaff = () => {
-
   const { register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm();
 
+  const dispatch = useDispatch();
+  const staff = useSelector(state => state.admin.staff);
+  const branches = useSelector(state => state.admin.branches);
+  // console data of staff for testing/buging
+  useEffect(() => {
+    console.log(staff);
+  }, [staff]);
+
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(addStaff(data))
+        toast.success(`Create Stuff successfully`);
+    reset()
   };
 
 
@@ -90,7 +104,7 @@ const CreateStaff = () => {
           {errors.cnic && <p>{errors.cnic.message}</p>}
         </div>
       </div>
-      {/* Email Field */}
+      {/* Date of birth Field */}
       <div className={`form-field ${errors.dateOfBirth ? "input-error" : ""}`}>
         <label htmlFor="dateOfBirth">Date of Birth</label>
         <div>
@@ -104,6 +118,27 @@ const CreateStaff = () => {
           {errors.dateOfBirth && <p>{errors.dateOfBirth.message}</p>}
         </div>
       </div>
+      {/* Branch Field */}
+      <div className={`form-field ${errors.branch ? "input-error" : ""}`}>
+        <label>Branch</label>
+        <div>
+          <select
+            {...register("branch", {
+              required: "Branch is required",
+            })}
+          >
+            <option value="">Select a branch</option>
+            {branches.map((br, idx) => (
+                <option key={idx} value={br.bName}>
+                  {br.bName}
+                </option>
+              ))}
+          </select>
+          {errors.branch && <p>{errors.branch.message}</p>}
+        </div>
+      </div>
+
+
 
       <button type="submit" >Create Staff</button>
     </motion.form>

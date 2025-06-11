@@ -24,7 +24,7 @@ const Admin = () => {
           <Link to="create-branch">
             <button>Create Branch</button>
           </Link>
-          <Link to="create-branch">
+          <Link to="update-branch">
             <button>Update Branch</button>
           </Link>
           <Link to="delete-branch">

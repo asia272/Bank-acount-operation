@@ -11,6 +11,7 @@ const LoginForm = () => {
 
     const { register,
         handleSubmit,
+        reset,
         formState: { errors }
     } = useForm();
 
@@ -18,21 +19,19 @@ const LoginForm = () => {
         console.log(data);
         let { role } = data
         dispatch(login(data));
-
-
         if (role === 'admin') navigate('/admin');
         else if (role === 'staff') navigate('/staff');
         else navigate('/customer');
+        reset()
     };
 
     return (
         <main>
-
             <motion.form onSubmit={handleSubmit(onSubmit)}
                 initial={{ opacity: 0, x: -160 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.3 }}       
+                transition={{ duration: 0.3 }}
             >
                 <div className="heading">
                     <h1>Fintal</h1>
@@ -78,7 +77,7 @@ const LoginForm = () => {
                     </div>
                 </div>
                 {/* Role Field */}
-                <div className={`form-field ${errors.role? "input-error" : ""}`} >
+                <div className={`form-field ${errors.role ? "input-error" : ""}`} >
                     <label>Role</label>
                     <div >
                         <select

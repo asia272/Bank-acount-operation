@@ -9,12 +9,25 @@ const adminSlice = createSlice({
   name: 'admin',
   initialState,
   reducers: {
-    addBranch: (state, action) => {},
-    updateBranch: (state, action) => {},
-    deleteBranch: (state, action) => {},
-    addStaff: (state, action) => {},
-    updateStaff: (state, action) => {},
-    deleteStaff: (state, action) => {},
+    // add Branch
+    addBranch: (state, action) => {
+      state.branches.push(action.payload);
+    },
+    // update Branch
+    updateBranch: (state, action) => { 
+      
+    },
+    // Delete Branch
+    deleteBranch: (state, action) => {
+      const branchName = action.payload;
+      state.branches = state.branches.filter(branch => branch.bName !== branchName);
+    },
+    // add stuff
+    addStaff: (state, action) => {
+      state.staff.push(action.payload);
+    },
+    updateStaff: (state, action) => { },
+    deleteStaff: (state, action) => { },
   },
 });
 

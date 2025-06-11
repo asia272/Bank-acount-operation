@@ -61,7 +61,7 @@
   justify-content: space-between;
 }
 
-.log-out-btn {
+.log-out-btn ,.delete-btn{
   background-color: #e03c31 !important;
   text-align: start;
 }

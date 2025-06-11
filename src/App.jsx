@@ -12,6 +12,7 @@ import DeleteStaff from './pages/Admin/AdminRoutes/DeleteStaff';
 import TransactionsLog from './pages/Admin/AdminRoutes/TransactionsLog';
 import './pages/error.css';
 import AdminWelcome from './pages/Admin/AdminRoutes/AdminWelcome';
+import UpdateBranch from './pages/Admin/AdminRoutes/UpdateBranch';
 import './pages/layouts.css'
 import './App.css';
 
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<AdminWelcome />} />
           <Route path="create-branch" element={< CreateBranch />} />
           <Route path="delete-branch" element={<DeletBranch />} />
+          <Route path="update-branch" element={<UpdateBranch />} />
           <Route path="create-staff" element={<CreateStaff />} />
           <Route path="delete-staff" element={<DeleteStaff />} />
           <Route path="transactions-log" element={<TransactionsLog />} />
