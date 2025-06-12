@@ -52,7 +52,7 @@ const UpdateStaff = () => {
       })
     );
 
-    toast.success(`Staff "${data.name}" updated successfully`);
+    toast.success(`Staff ${data.name} updated successfully`);
 
 
 setTimeout(() => {
@@ -199,7 +199,7 @@ setTimeout(() => {
         </div>
       </div>
 
-      <button type="submit">Update Staff</button>
+      <button type="submit" className='update-btn'>Update Staff</button>
     </motion.form>
   );
 };

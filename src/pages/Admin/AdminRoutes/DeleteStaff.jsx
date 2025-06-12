@@ -22,7 +22,7 @@ const DeleteStaff = () => {
     if (!confirmDelete) return;
 
     dispatch(deleteStaff(data.selectedStaff));
-    toast.success(`Staff "${data.selectedStaff}" deleted successfully`);
+    toast.success(`Staff ${data.selectedStaff} deleted successfully`);
     reset();
   };
 

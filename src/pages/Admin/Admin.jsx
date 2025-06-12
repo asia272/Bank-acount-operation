@@ -1,7 +1,6 @@
 import React from 'react';
 import Logout from '../Logout/Logout';
-import { Outlet } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 
 const Admin = () => {
   return (
@@ -12,38 +11,36 @@ const Admin = () => {
       <div className="sidebar">
 
         <div className='actions-btns'>
-          <Link to="create-staff">
+          <NavLink to="create-staff" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Create Staff</button>
-          </Link>
-          <Link to="update-staff">
+          </NavLink>
+          <NavLink to="update-staff" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Update Staff</button>
-          </Link>
-          <Link to="delete-staff">
+          </NavLink>
+          <NavLink to="delete-staff" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Delete Staff</button>
-          </Link>
-          <Link to="create-branch">
+          </NavLink>
+          <NavLink to="create-branch" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Create Branch</button>
-          </Link>
-          <Link to="update-branch">
+          </NavLink>
+          <NavLink to="update-branch" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Update Branch</button>
-          </Link>
-          <Link to="delete-branch">
+          </NavLink>
+          <NavLink to="delete-branch" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Delete Branch</button>
-          </Link>
-          <Link to="transactions-log">
+          </NavLink>
+          <NavLink to="transactions-log" className={({ isActive }) => isActive ? 'active' : ''}>
             <button>Transactions Log</button>
-          </Link>
+          </NavLink>
         </div>
         <Logout />
       </div>
 
       <div className="main-content">
-             <Outlet />
-
+        <Outlet />
       </div>
     </div>
-
-  )
+  );
 }
 
-export default Admin
+export default Admin;

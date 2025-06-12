@@ -23,7 +23,7 @@ const DeletBranch = () => {
     if (!confirmDelete) return;
 
     dispatch(deleteBranch(data.branch));
-    toast.success(`Branch "${data.branch}" deleted successfully`);
+    toast.success(`Branch ${data.branch} deleted successfully`);
     reset();
   };
 

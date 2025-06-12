@@ -17,7 +17,7 @@ const UpdateBranch = () => {
 
     let handleBranchSelect = (branchName) => {
         let branch = branches.find((br) => br.bName == branchName)
- 
+
         if (branch) {
             reset({
                 branch: branch.bName,
@@ -36,23 +36,23 @@ const UpdateBranch = () => {
         console.log(branches);
     }, [branches]);
 
-const onSubmit = (data) => {
-  const confirmUpdate = window.confirm(`Are you sure you want to update "${data.branch}"?`);
-  if (!confirmUpdate) return;
+    const onSubmit = (data) => {
+        const confirmUpdate = window.confirm(`Are you sure you want to update "${data.branch}"?`);
+        if (!confirmUpdate) return;
 
-  dispatch(updateBranch({
-    originalName: data.branch,
-    updatedData: {
-      bName: data.bName,
-      bAddress: data.bAddress,
-      bPhone: data.bPhone,
-    }
-  }));
+        dispatch(updateBranch({
+            originalName: data.branch,
+            updatedData: {
+                bName: data.bName,
+                bAddress: data.bAddress,
+                bPhone: data.bPhone,
+            }
+        }));
 
-  toast.success(`Branch "${data.branch}" updated successfully`);
-  reset();
+        toast.success(`Branch ${data.branch} updated successfully`);
+        reset();
 
-};
+    };
 
 
     return (
@@ -86,43 +86,53 @@ const onSubmit = (data) => {
                 </div>
             </div>
             {/* branch Field */}
-            <div className='form-field'>
+            <div className={`form-field ${errors.bName ? "input-error" : ""}`}>
                 <label>Branch Name</label>
                 <div>
                     <input
                         placeholder='Branch name'
                         type="text"
-                        {...register("bName")}
+                        {...register('bName', {
+                            required: 'Branch name is required',
+                        })}
                     />
-
+                    {errors.bName && <p>{errors.bName.message}</p>}
                 </div>
             </div>
             {/* Address Field */}
-            <div className='form-field'>
+            <div className={`form-field ${errors.bAddress ? "input-error" : ""}`}>
                 <label>Branch Address</label>
                 <div>
                     <input
                         placeholder='Branch Address'
                         type="text"
-                        {...register("bAddress")}
+                        {...register('bAddress', {
+                            required: 'Branch Address is required',
+
+                        })}
                     />
+                    {errors.bAddress && <p>{errors.bAddress.message}</p>}
 
                 </div>
             </div>
 
             {/* Phone Field */}
-            <div className='form-field'>
+            <div className={`form-field ${errors.bPhone ? "input-error" : ""}`}>
                 <label>Branch Phone</label>
                 <div>
                     <input
                         placeholder='Branch Phone'
                         type="tel"
-                        {...register("bPhone")}
+                        {...register('bPhone', {
+                            required: 'Branch Phone number is required',
+
+                        })}
                     />
+                    {errors.bPhone && <p>{errors.bPhone.message}</p>}
                 </div>
             </div>
 
-            <button type="submit" >Update Branch</button>
+            <button type="submit" className="update-btn">Update Branch</button>
         </motion.form>
     )
 }

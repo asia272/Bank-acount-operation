@@ -65,3 +65,12 @@
   background-color: #e03c31 !important;
   text-align: start;
 }
+.update-btn{
+  background-color: #3c9767 !important;
+}
+.active button {
+  background-color: #007bff;
+    background-color: #008b8b;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
