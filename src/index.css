@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-:root{
+
+/* :root{
  --nav-bg:hsl(159, 24%, 72%);
  --nav-bg: #0f2332;;
    --bg: #F5F9FC;
@@ -14,14 +16,15 @@
   --text: #1F2937;
   --light-text: #3c4049ef;
   --card-bg: #FFFFFF;
-}
-body{
+} */
+body {
   /* background-color: var(--bg);
   color:var(--text); */
-   font-family: 'Inter', sans-serif;
-   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
-button{
+
+button {
   background-color: #0f2332;
   color: white;
   border: none;
@@ -30,49 +33,57 @@ button{
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
-  
+
 }
-a{
+
+a {
   text-decoration: none;
 }
+
 span {
   color: hsl(169, 82%, 27%);
   margin-left: 3px;
 }
+
 /* Form styling */
 form {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 500px;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 500px;
+  box-shadow: 2px 2px 17px #0f2332;
 
 }
 
-input ,select{
-    border: 1px solid #0f2332;
-    border-radius: 6px;
-    width: 100%;
-     padding: 0.33rem;
+input,
+select {
+  border-radius: 6px;
+  width: 100%;
+  padding: 0.33rem;
   display: block;
 }
 
-label{
+label {
   width: 30%;
 }
-label+div{
+
+label+div {
   width: 100%;
 }
+
 /* animation */
-button:hover{
-transform: scale(1.1);
-background-color: #008b8b;
+button:hover {
+  transform: scale(1.1);
+  background-color: #008b8b;
 
 }
-button:active{
+
+button:active {
   transform: scale(0.9);
 }
- @media (max-width:450px) {
-  .form-group{
+
+@media (max-width:450px) {
+  .form-group {
     flex-direction: column;
   }
- }
+}

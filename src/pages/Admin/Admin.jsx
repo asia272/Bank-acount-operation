@@ -15,7 +15,7 @@ const Admin = () => {
           <Link to="create-staff">
             <button>Create Staff</button>
           </Link>
-          <Link to="create-staff">
+          <Link to="update-staff">
             <button>Update Staff</button>
           </Link>
           <Link to="delete-staff">

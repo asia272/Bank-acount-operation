@@ -17,10 +17,6 @@ const DeletBranch = () => {
   const dispatch = useDispatch();
   const branches = useSelector(state => state.admin.branches);
 
-  // Fort debuging
-  useEffect(() => {
-    console.log(branches);
-  }, [branches]);
 
   const onSubmit = (data) => {
     const confirmDelete = window.confirm(`Are you sure you want to delete "${data.branch}"?`);
@@ -33,7 +29,7 @@ const DeletBranch = () => {
 
   return (
     <motion.form onSubmit={handleSubmit(onSubmit)}
-      initial={{ opacity: 0, y: 160 }}
+      initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: 20 }}
       transition={{ duration: 0.3 }}

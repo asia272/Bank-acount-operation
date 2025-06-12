@@ -9,7 +9,6 @@ import { updateBranch } from '../../../features/admin/adminSlice';
 
 const UpdateBranch = () => {
 
-    let [selectedBranch, setSelectedBranch] = useState(null);
     const { register,
         handleSubmit,
         reset,
@@ -18,7 +17,7 @@ const UpdateBranch = () => {
 
     let handleBranchSelect = (branchName) => {
         let branch = branches.find((br) => br.bName == branchName)
-        setSelectedBranch(branch);
+ 
         if (branch) {
             reset({
                 branch: branch.bName,
@@ -37,15 +36,23 @@ const UpdateBranch = () => {
         console.log(branches);
     }, [branches]);
 
-    const onSubmit = (data) => {
-        const confirmUpdate = window.confirm(`Are you sure you want to update "${data.branch}"?`);
-        if (!confirmUpdate) return;
+const onSubmit = (data) => {
+  const confirmUpdate = window.confirm(`Are you sure you want to update "${data.branch}"?`);
+  if (!confirmUpdate) return;
 
-        dispatch(updateBranch(data.branch));
-        toast.success(`Branch "${data.branch}" update successfully`);
-        reset();
-    };
+  dispatch(updateBranch({
+    originalName: data.branch,
+    updatedData: {
+      bName: data.bName,
+      bAddress: data.bAddress,
+      bPhone: data.bPhone,
+    }
+  }));
 
+  toast.success(`Branch "${data.branch}" updated successfully`);
+  reset();
+
+};
 
 
     return (
@@ -78,7 +85,7 @@ const UpdateBranch = () => {
                     {errors.branch && <p>{errors.branch.message}</p>}
                 </div>
             </div>
-                   {/* Address Field */}
+            {/* branch Field */}
             <div className='form-field'>
                 <label>Branch Name</label>
                 <div>
@@ -87,7 +94,7 @@ const UpdateBranch = () => {
                         type="text"
                         {...register("bName")}
                     />
-                
+
                 </div>
             </div>
             {/* Address Field */}
@@ -99,7 +106,7 @@ const UpdateBranch = () => {
                         type="text"
                         {...register("bAddress")}
                     />
-                
+
                 </div>
             </div>
 

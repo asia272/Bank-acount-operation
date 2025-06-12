@@ -123,10 +123,7 @@ const CreateStaff = () => {
         <label>Branch</label>
         <div>
           <select
-            {...register("branch", {
-              required: "Branch is required",
-            })}
-          >
+            {...register("branch")} >
             <option value="">Select a branch</option>
             {branches.map((br, idx) => (
                 <option key={idx} value={br.bName}>
@@ -134,12 +131,8 @@ const CreateStaff = () => {
                 </option>
               ))}
           </select>
-          {errors.branch && <p>{errors.branch.message}</p>}
         </div>
       </div>
-
-
-
       <button type="submit" >Create Staff</button>
     </motion.form>
 
