@@ -51,7 +51,7 @@ form {
   padding: 2rem;
   border-radius: 8px;
   width: 500px;
-  box-shadow: 2px 2px 17px #87898a;
+  box-shadow: 1px 1px 6px #0f2332;
 }
 
 input,
@@ -79,7 +79,7 @@ label+div {
 /* animation */
 button:hover {
   /* transform: scale(1.1); */
-  background-color: rgba(38, 88, 126, 0.3);
+  background-color: #0f2332;
 
 }
 

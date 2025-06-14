@@ -34,7 +34,12 @@ const customerSlice = createSlice({
 
         },
         applyLoan: (state, action) => {
-            
+            state.loans.push({
+                ...action.payload,
+                date: new Date().toDateString(),
+                isApproved:false
+            })
+
 
         },
         updateProfile: (state, action) => {

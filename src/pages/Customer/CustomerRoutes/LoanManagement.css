@@ -1,0 +1,12 @@
+.loan-manage-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+}
+
+.loan-applications{
+    display: flex;
+}
