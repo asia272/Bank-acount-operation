@@ -23,7 +23,7 @@ const CreateStaff = () => {
 
   const onSubmit = (data) => {
     dispatch(addStaff(data))
-        toast.success(`Create Stuff successfully`);
+    toast.success(`Create Stuff successfully`);
     reset()
   };
 
@@ -123,14 +123,18 @@ const CreateStaff = () => {
         <label>Branch</label>
         <div>
           <select
-            {...register("branch")} >
+            {...register("branch", {
+              required: "pleas select branch for this stuff",
+            })}
+          >
             <option value="">Select a branch</option>
             {branches.map((br, idx) => (
-                <option key={idx} value={br.bName}>
-                  {br.bName}
-                </option>
-              ))}
+              <option key={idx} value={br.bName}>
+                {br.bName}
+              </option>
+            ))}
           </select>
+          {errors.branch && <p>{errors.branch.message}</p>}
         </div>
       </div>
       <button type="submit" >Create Staff</button>

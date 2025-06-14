@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LoginForm from './pages/Login/LoginForm';
 import Admin from './pages/Admin/Admin';
@@ -13,12 +13,20 @@ import TransactionsLog from './pages/Admin/AdminRoutes/TransactionsLog';
 import UpdateStaff from './pages/Admin/AdminRoutes/UpdateStaff';
 import AdminWelcome from './pages/Admin/AdminRoutes/AdminWelcome';
 import UpdateBranch from './pages/Admin/AdminRoutes/UpdateBranch';
-import './pages/layouts.css'
+// Customer route components (replace these with your actual components)
+import CustomerDashboard from './pages/Customer/CustomerRoutes/CustomerDashboard';
+import SendMoney from './pages/Customer/CustomerRoutes/SendMoney';
+import AddMoney from './pages/Customer/CustomerRoutes/AddMoney';
+import CustomerTransactions from './pages/Customer/CustomerRoutes/CustomerTransactions';
+import PayBills from './pages/Customer/CustomerRoutes/PayBills';
+import LoanManagement from './pages/Customer/CustomerRoutes/LoanManagement';
+import ProfileSetting from './pages/Customer/CustomerRoutes/ProfileSetting';
+
+import './pages/layouts.css';
 import './pages/error.css';
 import './App.css';
 
 function App() {
-
   return (
     <>
       <Routes>
@@ -28,7 +36,7 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin" element={<Admin />}>
           <Route index element={<AdminWelcome />} />
-          <Route path="create-branch" element={< CreateBranch />} />
+          <Route path="create-branch" element={<CreateBranch />} />
           <Route path="delete-branch" element={<DeletBranch />} />
           <Route path="update-branch" element={<UpdateBranch />} />
           <Route path="create-staff" element={<CreateStaff />} />
@@ -36,17 +44,23 @@ function App() {
           <Route path="update-staff" element={<UpdateStaff />} />
           <Route path="transactions-log" element={<TransactionsLog />} />
         </Route>
-        {/* Staff routes */}
+
+        {/* Staff Routes */}
         <Route path="/staff" element={<Staff />} />
-        {/* Customer routes */}
-        <Route path="/customer" element={<Customer />} />
+
+        {/* Customer Routes */}
+        <Route path="/customer" element={<Customer />}>
+          <Route index element={<CustomerDashboard />} />
+          <Route path="send-money" element={<SendMoney />} />
+          <Route path="add-money" element={<AddMoney />} />
+          <Route path="transactions" element={<CustomerTransactions />} />
+          <Route path="pay-bills" element={<PayBills />} />
+          <Route path="loan-management" element={<LoanManagement />} />
+          <Route path="profile-setting" element={<ProfileSetting />} />
+        </Route>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
-
-
-
-
+export default App;

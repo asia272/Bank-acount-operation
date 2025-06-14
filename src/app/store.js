@@ -3,16 +3,15 @@ import authReducer from '../features/auth/authSlice';
 import adminReducer from '../features/admin/adminSlice';
 import signupReducer from '../features/signup/signupSlice';
 import cardReducer from '../features/card/cardSlice';
-
 // import staffReducer from '../features/staff/staffSlice';
-// import customerReducer from '../features/customer/customerSlice';
+import customerReducer from '../features/customer/customerSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     admin: adminReducer,
     // staff: staffReducer,
-    // customer: customerReducer,
+    customer: customerReducer,
     card: cardReducer,
     signup: signupReducer,
 

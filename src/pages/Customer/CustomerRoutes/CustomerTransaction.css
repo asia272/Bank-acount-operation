@@ -1,0 +1,40 @@
+.transactions-container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #3882ba;
+    border-radius: 5px;
+    position: relative;
+    padding: 0.88rem;
+}
+
+.transactions-container h3 {
+    position: absolute;
+    background-color: white;
+    transform: translateY(-120%);
+    color: #3882ba;
+    left: 2%;
+}
+.transaction-type{
+    margin: 2rem 0;
+}
+
+.transactions-container table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+th {
+    background-color: #3882ba;
+    color: white;
+      border-left: 1px solid white; 
+}
+th:first-child {
+  border-left: none;
+}
+th,
+td {
+    padding: 6px 10px;
+vertical-align: middle;
+text-align: center;
+}

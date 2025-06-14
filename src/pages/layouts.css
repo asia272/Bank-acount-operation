@@ -36,6 +36,7 @@
 
 .main-content {
   grid-area: main;
+  padding: 13px 5px;
   background-color: white;
   color: black;
   height: 100%;

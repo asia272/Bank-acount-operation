@@ -55,11 +55,17 @@ form {
 }
 
 input,
-select {
+select,
+textarea {
   border-radius: 6px;
   width: 100%;
   padding: 0.33rem;
   display: block;
+}
+
+textarea {
+  resize: none;
+  outline: none;
 }
 
 label {
@@ -73,13 +79,15 @@ label+div {
 /* animation */
 button:hover {
   /* transform: scale(1.1); */
-  background-color:rgba(38, 88, 126,0.3);
+  background-color: rgba(38, 88, 126, 0.3);
 
 }
 
 button:active {
   transform: scale(0.9);
 }
+
+
 
 @media (max-width:450px) {
   .form-group {
