@@ -4,9 +4,12 @@
     height: 100%;
     gap: 3rem;
     align-items: center;
-    width: 100%;
 }
-
-.loan-applications{
-    display: flex;
+.loan-manage-container form{
+    width: 100% !important;
+    margin: 0 2rem !important;
+}
+.display-loans{
+    display: flex !important;
+    gap: 1rem;
 }

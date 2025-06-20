@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from "../../features/auth/authSlice";
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
+import { toast } from 'react-hot-toast';
 import "./LoginForm.css"
 
 const LoginForm = () => {
@@ -17,11 +18,21 @@ const LoginForm = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        let { role } = data
-        dispatch(login(data));
+      const { email, password, role } = data;
+
+    const user = {
+        email,
+        password,
+        name: "",    
+        phone: ""  
+    };
+
+dispatch(login({ user, role }));
+
         if (role === 'admin') navigate('/admin');
         else if (role === 'staff') navigate('/staff');
         else navigate('/customer');
+        toast.success(`Well come back to ${role} dashboard`);
         reset()
     };
 

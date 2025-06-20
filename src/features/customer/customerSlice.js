@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+
+const savedCustomer = JSON.parse(localStorage.getItem('customerState'));
+
+const initialState = savedCustomer || {
     balance: 2000,
     transactions: [],
     loans: [],
     bills: [],
     profile: {},
+};
+
+const saveToLocalStorage = (state) => {
+    localStorage.setItem('customerState', JSON.stringify(state));
 };
 
 const customerSlice = createSlice({
@@ -21,31 +28,33 @@ const customerSlice = createSlice({
                 counterpartyName: action.payload.name,
                 counterpartyAccount: action.payload.accountNo,
                 date: new Date().toISOString()
-            })
-
+            });
+            saveToLocalStorage(state);
         },
+
         addMoney: (state, action) => {
 
+            saveToLocalStorage(state);
         },
+
         recordTransaction: (state, action) => {
 
+            saveToLocalStorage(state);
         },
+
         payBill: (state, action) => {
 
+            saveToLocalStorage(state);
         },
+
         applyLoan: (state, action) => {
             state.loans.push({
                 ...action.payload,
                 date: new Date().toDateString(),
-                isApproved:false
-            })
-
-
-        },
-        updateProfile: (state, action) => {
-
-        },
-
+                isApproved: false
+            });
+            saveToLocalStorage(state);
+        }
     },
 });
 
@@ -55,7 +64,6 @@ export const {
     recordTransaction,
     payBill,
     applyLoan,
-    updateProfile,
 } = customerSlice.actions;
 
 export default customerSlice.reducer;

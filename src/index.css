@@ -51,6 +51,7 @@ form {
   padding: 2rem;
   border-radius: 8px;
   width: 500px;
+  max-width: 100%;
   box-shadow: 1px 1px 6px #0f2332;
 }
 

@@ -34,21 +34,26 @@ const LoanManagement = () => {
         {/* Amount */}
         <div className={`form-field ${errors.amount ? 'input-error' : ''}`}>
           <label>Amount (PKR)</label>
-          <input
-            type='number'
-            {...register('amount', { required: 'Please enter your amount' })}
-          />
-          {errors.amount && <p>{errors.amount.message}</p>}
+          <div>
+            <input
+              type='number'
+              {...register('amount', { required: 'Please enter your loan amount' })}
+            />
+            {errors.amount && <p>{errors.amount.message}</p>}
+          </div>
         </div>
 
         {/* Tenure */}
         <div className={`form-field ${errors.tenure ? 'input-error' : ''}`}>
           <label>Tenure (Month)</label>
-          <input
-            type='number'
-            {...register('tenure', { required: "Please enter your loan tenure" })}
-          />
-          {errors.tenure && <p>{errors.tenure.message}</p>}
+          <div>
+            <input
+              type='number'
+              {...register('tenure', { required: "Please enter you'r loan tenure" })}
+            />
+            {errors.tenure && <p>{errors.tenure.message}</p>}
+          </div>
+
         </div>
 
         {/* Purpose */}
@@ -70,40 +75,44 @@ const LoanManagement = () => {
       </form>
 
       {/* Display loan applications */}
-      <div className="loan-applications">
-        <div>
-          <h3>Loan Applications</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Amount</th>
-                <th>Tenure (Month)</th>
-                <th>Purpose</th>
-                <th>Apply Date</th>
-                <th>Is Approved</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loans.map((loan, idx) => (
-                <tr key={idx}>
-                  <td>{idx + 1}</td>
-                  <td>{loan.amount}</td>
-                  <td>{loan.tenure}</td>
-                  <td>{loan.purpose}</td>
-                  <td>{loan.date}</td>
-                  <td>{loan.isApproved ? "Yes" : "No"}</td>
+      <div className='display-loans'>
+        <div className="loan-applications">
+          <div>
+            <h3>Loan Applications</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Amount</th>
+                  <th>Tenure (Month)</th>
+                  <th>Purpose</th>
+                  <th>Apply Date</th>
+                  <th>Is Approved</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {loans.map((loan, idx) => (
+                  <tr key={idx}>
+                    <td>{idx + 1}</td>
+                    <td>{loan.amount}</td>
+                    <td>{loan.tenure}</td>
+                    <td>{loan.purpose}</td>
+                    <td>{loan.date}</td>
+                    <td>{loan.isApproved ? "Yes" : "No"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
         </div>
         <div>
-          <h4>Total application</h4>
-          <h4>Remaining amount: PKR 0</h4>
+          <h5>Total application:{loans.length}</h5>
+          <h5>Remaining amount: PKR 0</h5>
         </div>
 
       </div>
+
     </motion.div>
   );
 };
