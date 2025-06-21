@@ -4,11 +4,17 @@ import { login } from "../../features/auth/authSlice";
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
+import { fakeLoginAPI } from "../../features/auth/authAPI";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+
 import "./LoginForm.css"
 
 const LoginForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const auth = useSelector((state) => state.auth);
+    // const accountType = auth.user?.accountType;
 
     const { register,
         handleSubmit,
@@ -16,24 +22,38 @@ const LoginForm = () => {
         formState: { errors }
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-      const { email, password, role } = data;
+    const onSubmit = async (data) => {
+        const { email, password, role } = data;
 
-    const user = {
-        email,
-        password,
-        name: "",    
-        phone: ""  
-    };
 
-dispatch(login({ user, role }));
+        const result = await fakeLoginAPI(email, password, auth.user);
 
-        if (role === 'admin') navigate('/admin');
-        else if (role === 'staff') navigate('/staff');
-        else navigate('/customer');
-        toast.success(`Well come back to ${role} dashboard`);
-        reset()
+
+
+        if (result.success) {
+            dispatch(login({ user: result.user, role }));
+            toast.success(`Welcome back to ${role} dashboard`);
+            const accountType = result.user.accountType;
+
+            if (role === 'admin') {
+                navigate('/admin');
+            }
+            else if (role === 'staff') {
+                navigate('/staff');
+            }
+            else if (role === 'customer') {
+                if (accountType === 'beneficiary') {
+                    navigate('/beneficiary');
+                } else {
+                    navigate('/customer');
+                }
+            }
+
+
+            reset();
+        } else {
+            toast.error(result.message);
+        }
     };
 
     return (
@@ -103,6 +123,11 @@ dispatch(login({ user, role }));
                     </div>
 
                 </div>
+                <NavLink to="/signup" className="signup-link">
+                    Signup
+                </NavLink>
+
+
                 <button type="submit">Login</button>
             </motion.form>
 

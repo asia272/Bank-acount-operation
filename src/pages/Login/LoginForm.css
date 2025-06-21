@@ -6,13 +6,14 @@
     margin-bottom: 2.44rem;
 }
 
-.heading h1 +p {
+.heading h1+p {
     color: gray !important;
 }
 
 main {
     min-height: 100vh;
     display: flex;
+    width: 100vw;
     align-items: center;
     justify-content: center;
     background-color: #0c1d2a;

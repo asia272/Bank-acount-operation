@@ -37,11 +37,6 @@ const customerSlice = createSlice({
             saveToLocalStorage(state);
         },
 
-        recordTransaction: (state, action) => {
-
-            saveToLocalStorage(state);
-        },
-
         payBill: (state, action) => {
 
             saveToLocalStorage(state);

@@ -6,20 +6,9 @@
   box-sizing: border-box;
 }
 
-/* :root{
- --nav-bg:hsl(159, 24%, 72%);
- --nav-bg: #0f2332;;
-   --bg: #F5F9FC;
-  --primary: #1E3A8A;
-  --accent: #10B981;
-  --danger: #EF4444;
-  --text: #1F2937;
-  --light-text: #3c4049ef;
-  --card-bg: #FFFFFF;
-} */
+
 body {
-  /* background-color: var(--bg);
-  color:var(--text); */
+
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }

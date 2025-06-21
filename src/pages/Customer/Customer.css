@@ -1,0 +1,29 @@
+.customer-dashboard{
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    gap: 1rem;
+    justify-content: center;
+}
+.customer-dashboard div{
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.52rem;
+    text-align: center;
+}
+.customer-dashboard div p{
+    font-size: 14px;
+}
+.balanc-div h2{
+color: #2c925c;
+}
+.total-loans h2{
+    color: #ee2516;
+}

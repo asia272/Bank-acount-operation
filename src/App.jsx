@@ -4,7 +4,7 @@ import LoginForm from './pages/Login/LoginForm';
 import Admin from './pages/Admin/Admin';
 import Customer from './pages/Customer/Customer';
 import Staff from './pages/Staff/Staff';
-import Signup from './pages/Signup';
+import Signup from "./pages/Signup/Signup"
 import CreateBranch from './pages/Admin/AdminRoutes/CreateBranch';
 import CreateStaff from './pages/Admin/AdminRoutes/CreateStaff';
 import DeletBranch from './pages/Admin/AdminRoutes/DeletBranch';
@@ -13,7 +13,6 @@ import TransactionsLog from './pages/Admin/AdminRoutes/TransactionsLog';
 import UpdateStaff from './pages/Admin/AdminRoutes/UpdateStaff';
 import AdminWelcome from './pages/Admin/AdminRoutes/AdminWelcome';
 import UpdateBranch from './pages/Admin/AdminRoutes/UpdateBranch';
-// Customer route components (replace these with your actual components)
 import CustomerDashboard from './pages/Customer/CustomerRoutes/CustomerDashboard';
 import SendMoney from './pages/Customer/CustomerRoutes/SendMoney';
 import AddMoney from './pages/Customer/CustomerRoutes/AddMoney';
@@ -21,6 +20,8 @@ import CustomerTransactions from './pages/Customer/CustomerRoutes/CustomerTransa
 import PayBills from './pages/Customer/CustomerRoutes/PayBills';
 import LoanManagement from './pages/Customer/CustomerRoutes/LoanManagement';
 import ProfileSetting from './pages/Customer/CustomerRoutes/ProfileSetting';
+import Beneficiary from './pages/Customer/BeneficiaryAccount/Beneficiary';
+import BeneficiaryDashboard from './pages/Customer/BeneficiaryAccount/BeneficiaryRoutes/BeneficiaryDashboard';
 
 import './pages/layouts.css';
 import './pages/error.css';
@@ -58,6 +59,12 @@ function App() {
           <Route path="loan-management" element={<LoanManagement />} />
           <Route path="profile-setting" element={<ProfileSetting />} />
         </Route>
+        {/* Beneficiary acount Routes */}
+        <Route path="/beneficiary" element={<Beneficiary />}>
+          <Route index element={<BeneficiaryDashboard />} />
+         
+        </Route>
+
       </Routes>
     </>
   );
